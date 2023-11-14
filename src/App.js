@@ -1,34 +1,28 @@
-import CategoryList from "./components/categories/categoryList.component";
-const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
-  ];
+import Home from "./router/home/home.component";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navigation from "./router/navigation/navigaton.component.jsx";
+import Authentication from "./components/authentication/authentication.component.jsx";
+import { Fragment } from "react";
 
-  return <CategoryList categories={categories} />;
+const Shop = () => {
+  return (
+    <Fragment>
+      <h1>Shopping page</h1>
+    </Fragment>
+  );
+};
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />}></Route>
+          <Route path="shop" element={<Shop />}></Route>
+          <Route path="auth" element={<Authentication />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;

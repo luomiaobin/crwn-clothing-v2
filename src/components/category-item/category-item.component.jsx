@@ -1,7 +1,5 @@
 const CategoryItem = ({category}) => {
-//   console.log(category);
   const { title, imageUrl } = category;
-  console.log(category.category);
   return (
     <div className="category-container">
       <div
